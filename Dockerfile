@@ -1,6 +1,6 @@
 FROM node:lts-slim
-RUN npm install http-server && mkdir /app
+RUN npm install http-server && mkdir /app /app/share
 COPY web_server.js /app
-EXPOSE 9000
+EXPOSE 9002
 WORKDIR /app
-CMD "node web_server.js"
+CMD /usr/local/bin/node /app/web_server.js
